@@ -1,7 +1,7 @@
 hub:
-  cookieSecret: "16b46f8d327181bb43d1ff5809a99c2b25f7e8fa4c6f99518575f313fc36d537"
+  cookieSecret: "%%HUBSECRET%%"
 proxy:
-  secretToken: "548b4ff8c3ed81ac1ab472440c325983cc4af246d725ff5d184cee334aaf850f"
+  secretToken: "%%PROXYSECRET%%"
 auth:
   type: github
   github:

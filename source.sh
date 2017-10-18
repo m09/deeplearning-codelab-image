@@ -16,8 +16,13 @@ function dlc-reload-config {
 }
 
 function _dlc-make-config {
-    local secret="$(< .github-secret.key)"
-    sed -e "s/%%TAG%%/$1/g" -e "s/%%GITHUBSECRET%%/$secret/g" \
+    local github_secret="$(< .github-secret.key)"
+    local hub_secret="$(< .hub-secret.key)"
+    local proxy_secret="$(< .proxy-secret.key)"
+    sed -e "s/%%TAG%%/$1/g" \
+        -e "s/%%GITHUBSECRET%%/$github_secret/g" \
+        -e "s/%%HUBSECRET%%/$hub_secret/g" \
+        -e "s/%%PROXYSECRET%%/$proxy_secret/g" \
         < "$dlc_home/config.yaml.template"
 }
 
