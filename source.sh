@@ -3,12 +3,14 @@ alias dlc-check='kubectl --namespace=dlc-jupyterhub get pod'
 alias dlc-resize=""
 
 function dlc-resize {
+    # https://zero-to-jupyterhub.readthedocs.io/en/latest/extending-jupyterhub.html#applying-configuration-changes
     gcloud container clusters resize deeplearning-codelab \
            --zone europe-west1-b \
            --size $1
 }
 
 function dlc-reload-config {
+    # https://zero-to-jupyterhub.readthedocs.io/en/latest/extending-jupyterhub.html#applying-configuration-changes
     helm upgrade dlc-jupyterhub jupyterhub/jupyterhub \
          --version=v0.4 \
          -f "$dlc_home/config.yaml"
