@@ -2,3 +2,7 @@ keras
 tensorflow
 h5py
 Pillow
+pydot
+graphviz
+matplotlib
+seaborn
