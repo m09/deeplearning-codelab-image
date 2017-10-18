@@ -1,6 +1,5 @@
 dlc_home="$(pwd)"
 alias dlc-check='kubectl --namespace=dlc-jupyterhub get pod'
-alias dlc-resize=""
 
 function dlc-resize {
     # https://zero-to-jupyterhub.readthedocs.io/en/latest/extending-jupyterhub.html#applying-configuration-changes
