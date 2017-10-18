@@ -12,7 +12,7 @@ function dlc-reload-config {
     # https://zero-to-jupyterhub.readthedocs.io/en/latest/extending-jupyterhub.html#applying-configuration-changes
     helm upgrade dlc-jupyterhub jupyterhub/jupyterhub \
          --version=v0.4 \
-         -f "$dlc_home/config.yaml"
+         -f "$dlc_home/.config.yaml"
 }
 
 function _dlc-make-config {
@@ -23,7 +23,7 @@ function _dlc-make-config {
         -e "s/%%GITHUBSECRET%%/$github_secret/g" \
         -e "s/%%HUBSECRET%%/$hub_secret/g" \
         -e "s/%%PROXYSECRET%%/$proxy_secret/g" \
-        < "$dlc_home/config.yaml.template"
+        < "$dlc_home/.config.yaml.template"
 }
 
 function dlc-upload {
@@ -40,7 +40,7 @@ function dlc-upload {
     gcloud docker -- \
            push gcr.io/deeplearning-codelab-183309/workspace:$short_commit_id
     echo "Updating config file"
-    _dlc-make-config $short_commit_id > "$dlc_home/config.yaml"
+    _dlc-make-config $short_commit_id > "$dlc_home/.config.yaml"
     echo "Upload new config file"
     dlc-reload-config
 }
