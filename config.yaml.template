@@ -6,7 +6,7 @@ auth:
   type: github
   github:
     clientId: "309eec9a15e1ae5e9ca9"
-    clientSecret: "846cac7c45cc90047fb5bba67f1f0c58f77f7d6b"
+    clientSecret: "%%GITHUBSECRET%%"
     callbackUrl: "http://35.189.251.190/hub/oauth_callback"
 singleuser:
   image:

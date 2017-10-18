@@ -17,7 +17,9 @@ function dlc-reload-config {
 }
 
 function _dlc-make-config {
-    sed "s/%%TAG%%/$1/g" < "$dlc_home/config.yaml.template"
+    local secret="$(< .github-secret.key)"
+    sed -e "s/%%TAG%%/$1/g" -e "s/%%GITHUBSECRET%%/$secret/g" \
+        < "$dlc_home/config.yaml.template"
 }
 
 function dlc-upload {
