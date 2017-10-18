@@ -33,7 +33,7 @@ function dlc-upload {
     echo "Using $short_commit_id as tag"
     echo "Building Docker image with repo2docker"
     jupyter-repo2docker \
-        . \
+        "$dlc_home" \
         --image=gcr.io/deeplearning-codelab-183309/workspace:$short_commit_id \
         --no-run
     echo "Uploading Docker image on gcloud"
