@@ -6,3 +6,6 @@ pydot
 graphviz
 matplotlib
 seaborn
+ipython
+notebook
+pandas
